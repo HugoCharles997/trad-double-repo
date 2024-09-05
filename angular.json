@@ -4,6 +4,13 @@
   "newProjectRoot": "projects",
   "projects": {
     "trad-double-repo": {
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "fr-FR": "src/locale/messages.fr.xlf",
+          "de-DE": "src/locale/messages.de.xlf"
+        }
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,11 +24,13 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "localize": ["fr-FR"],
             "outputPath": "dist/trad-double-repo",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -85,7 +94,8 @@
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
